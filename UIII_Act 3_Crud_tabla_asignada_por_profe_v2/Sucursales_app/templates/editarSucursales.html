@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block cuerpo %} 
+
+<div class="row"> <!-- fila en editar -->
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar Sucursal</h2>
+        <!-- Aqui codigo tarjeta -->
+        <div class="card"><!-- La tarjeta -->
+            <div class="card-body">
+                <form action="/editarSucursales/" method="POST"> {% csrf_token %} <!-- Falta accion -->
+                    <div class="form-group">
+                        <input type="text" id="txtid" name="txtid" class="form-control" 
+                        value="{{Su.Id_Sucursal}}" minlength="1" maxlength="6" readonly required>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="text" id="txtnombre" name="txtnombre" class="form-control" 
+                        value="{{Su.nombre}}" maxlength="100" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtubicacion" name="txtubicacion" class="form-control" 
+                        min="1" max="9" value="{{Su.ubicacion}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txttamaño" name="txttamaño" class="form-control" 
+                        min="1" max="9" value="{{Su.tamaño}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtencargado" name="txtencargado" class="form-control" 
+                        min="1" max="9" value="{{Su.encargado}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txthorarios" name="txthorarios" class="form-control" 
+                        min="1" max="9" value="{{Su.horarios}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtcapacidad" name="txtcapacidad" class="form-control" 
+                        min="1" max="9" value="{{Su.capacidad}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- La tarjeta -->
+        <!-- Aqui codigo tarjeta -->
+    </div>
+
+</div> <!-- fila en editar -->
+
+{% endblock %}

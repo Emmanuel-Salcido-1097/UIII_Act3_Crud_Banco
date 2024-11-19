@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block cuerpo %} 
+
+<div class="row"> <!-- fila en editar -->
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar Seguridad Privada</h2>
+        <!-- Aqui codigo tarjeta -->
+        <div class="card"><!-- La tarjeta -->
+            <div class="card-body">
+                <form action="/editarSeguridadPrivada/" method="POST"> {% csrf_token %} <!-- Falta accion -->
+                    <div class="form-group">
+                        <input type="text" id="txtid" name="txtid" class="form-control" 
+                        value="{{SeguridadP.Id_Seguridad}}" minlength="1" maxlength="6" readonly required>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="text" id="txtnombre" name="txtnombre" class="form-control" 
+                        value="{{SeguridadP.nombre}}" maxlength="100" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtcontacto" name="txtcontacto" class="form-control" 
+                        min="1" max="9" value="{{SeguridadP.contacto}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txthorarios" name="txthorarios" class="form-control" 
+                        min="1" max="9" value="{{SeguridadP.horarios}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtpersonal" name="txtpersonal" class="form-control" 
+                        min="1" max="9" value="{{SeguridadP.personal}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtvehiculos" name="txtvehiculos" class="form-control" 
+                        min="1" max="9" value="{{SeguridadP.vehiculos}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtservicios" name="txtservicios" class="form-control" 
+                        min="1" max="9" value="{{SeguridadP.servicios}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- La tarjeta -->
+        <!-- Aqui codigo tarjeta -->
+    </div>
+
+</div> <!-- fila en editar -->
+
+{% endblock %}
